@@ -29,12 +29,12 @@ div1.setAttributeNode(id);
 document.body.insertBefore(div1,document.getElementById('game-wrapper'));
 
 id = document.createElement("p");
-id.innerHTML = 'Teleport';
+id.innerHTML = 'New Tab';
 var idea = document.createAttribute('id');
-idea.value = 'tele';
+idea.value = 'tab';
 id.setAttributeNode(idea);
 var idea = document.createAttribute('title');
-idea.value = 'Teleports to mouse on keypress';
+idea.value = 'Opens new tab on the shad0w.gq database.';
 id.setAttributeNode(idea);
 div.appendChild(document.createElement('br'));
 div.appendChild(document.createElement('br'));
@@ -201,32 +201,12 @@ id.setAttributeNode(idea);
 div.appendChild(id);
 
 id = document.createElement("p");
-id.innerHTML = 'Monsters Level One';
-var idea = document.createAttribute('id');
-idea.value = 'mon';
-id.setAttributeNode(idea);
-var idea = document.createAttribute('title');
-idea.value = 'Makes Monsters All Level One';
-id.setAttributeNode(idea);
-div1.appendChild(id);
-
-id = document.createElement("p");
 id.innerHTML = 'Invincible';
 var idea = document.createAttribute('id');
 idea.value = 'tryme';
 id.setAttributeNode(idea);
 var idea = document.createAttribute('title');
 idea.value = 'Makes You Invincible';
-id.setAttributeNode(idea);
-div1.appendChild(id);
-
-id = document.createElement("p");
-id.innerHTML = 'Grade Change';
-var idea = document.createAttribute('id');
-idea.value = 'grade';
-id.setAttributeNode(idea);
-var idea = document.createAttribute('title');
-idea.value = 'Changes your grade, reload to take affect';
 id.setAttributeNode(idea);
 div1.appendChild(id);
 
@@ -241,7 +221,7 @@ a.value = 'position: absolute; z-index: 10; width: 50px; height: 50px;';
 e.setAttributeNode(a);
 
 a = document.createAttribute('title');
-a.value = "Try not to use this often, it's bad to cheat.";
+a.value = "testhtml";
 e.setAttributeNode(a);
 
 a = document.createAttribute('type');
@@ -261,140 +241,16 @@ body[0].insertBefore(e, document.getElementById('game-wrapper'));
 
 document.getElementById("cheatButton").addEventListener("click", disp);
 document.getElementById('sub').addEventListener("click", disp1);
+document.getElementById('tab').addEventListener("click", tab);
 
-document.getElementById('tele').addEventListener("click", teleport);
-document.getElementById('member' ).addEventListener("click", member);
-document.getElementById('escape').addEventListener("click", escape);
-document.getElementById('level').addEventListener("click", level);
-document.getElementById('tut').addEventListener("click", tut);
-document.getElementById('greed').addEventListener("click", greed);
-document.getElementById('conjure').addEventListener("click", conjure);
-document.getElementById('items').addEventListener("click", item);
-document.getElementById('sped').addEventListener("click", sped);
-document.getElementById('notsped').addEventListener("click", notsped);
-document.getElementById('instakill').addEventListener("click", instakill);
-document.getElementById('pets').addEventListener("click", pets);
-document.getElementById('zones').addEventListener("click", zones);
-document.getElementById('hype').addEventListener("click", hype);
-document.getElementById('furnosh').addEventListener("click", furnosh);
-document.getElementById('petlevel').addEventListener("click", petlevel);
-document.getElementById('mon').addEventListener("click", mon);
-document.getElementById('tryme').addEventListener("click", tryme);
-document.getElementById('grade').addEventListener("click", grade);
-
-function grade(){
-  var g = prompt("What grade would you like to change to? (1-8)");
-  PIXI.game.prodigy.player.grade = g;
+function warn(){
+  alert('Disclaimer, this is a test build expect many bugs to be present.');
 }
 
-function tryme(){
-  PIXI.game.prodigy.battle.constructor.MOD_DEFAULTS.invincible=true;
+function tab(){
+  window.open('https://shad0w.gq/', '_blank');
 }
 
-function mon(){
-  PIXI.game.prodigy.battle.constructor.MOD_DEFAULTS.level = 1;
-}
-
-function petlevel(){
-  for (let i=0; i<PIXI.game.prodigy.player.kennel.data.length; i++) {
-    PIXI.game.prodigy.player.kennel.data[i].level=100;
-  };
-}
-
-function furnosh(){
-  for(var i = 1; i < 148; i++){
-PIXI.game.prodigy.player.house.data.items[i] = {A: Array(0), N: 1000};
-}
- }
-
-function hype(){
-    PIXI.game.prodigy.debugMisc.setBattleEnergy(Infinity);
-}
-
-function zones(){
-    PIXI.game.prodigy.classModeController.lockedZones=0;
-}
-
-function pets(){
-    PIXI.game.prodigy.debugMisc.getAllPets();
-}
-
-function instakill(){
-    PIXI.game.prodigy.player.modifiers.damage=Infinity;
-}
-
-function sped(){
-    PIXI.game.prodigy.debugMisc.setGameSpeed(10);
-}
-
-function notsped(){
-    PIXI.game.prodigy.debugMisc.setGameSpeed(1);
-}
-
-function item(){
-a=["outfit", "hat", "boots", "weapon", "spellRelic", "fossil"];
-for (u of a) {
-    PIXI.game.prodigy.player.backpack.data[u]=[];
-    x = PIXI.game.state.states.Boot._gameData[u];
-    for (i in x) {
-        PIXI.game.prodigy.player.backpack.data[u][i] = {"ID": x[i].ID, "N": 1};
-    }
-}
-PIXI.game.prodigy.player.backpack.data.currency=[];
-x = PIXI.game.state.states.Boot._gameData.currency;
-for (i in x) {
-    PIXI.game.prodigy.player.backpack.data.currency[i] = {"ID": x[i].ID, "N": 99999999};
-}
-
-PIXI.game.prodigy.player.backpack.data.follow=[];
-x = PIXI.game.state.states.Boot._gameData.follow;
-for (i in x) {
-    PIXI.game.prodigy.player.backpack.data.follow[i] = {"ID": x[i].ID};
-}
-PIXI.game.prodigy.player.backpack.data.item=[];
-x = PIXI.game.state.states.Boot._gameData.item;
-for (i in x) {
-    PIXI.game.prodigy.player.backpack.data.item[i] = {"ID": x[i].ID, "N": 99999999};
-}
-
-PIXI.game.prodigy.player.backpack.data.item=[];
-x = PIXI.game.state.states.Boot._gameData.item;
-for (i in x) {
-    PIXI.game.prodigy.player.backpack.data.item[i] = {"ID": x[i].ID, "N": 99999999};
-}
-}
-
-function conjure(){
-    PIXI.game.prodigy.debugMisc.getCubes(99);
-    PIXI.game.prodigy.create.conjureCubeButton();
-}
-
-function greed(){
-    PIXI.game.prodigy.game.prodigy.debugMisc.getGold(Infinity);
-}
-
-function tut(){
-    PIXI.game.prodigy.debugQuests.completeTutorial();
-}
-
-function level(){
-  PIXI.game.prodigy.player.data.level=100;
-}
-
-function member(){
-  PIXI.game.prodigy.player.it=true;
-}
-
-function escape(){
-  PIXI.game.prodigy.debugMisc.escapeBattle();
-}
-
-function teleport(){
-window.addEventListener('keydown', (event) => {
-PIXI.game.prodigy.user.x=PIXI.game.input.mousePointer.position.x;
-PIXI.game.prodigy.user.y=PIXI.game.input.mousePointer.position.y;
-});
-}
 
 function disp1(){
     document.getElementById('submenu').classList.toggle("hide");
