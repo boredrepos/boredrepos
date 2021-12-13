@@ -57,7 +57,7 @@ a.value = 'image';
 e.setAttributeNode(a);
 
 a = document.createAttribute('src');
-a.value = 'https://cdn.pixabay.com/photo/2020/12/27/20/24/emoji-5865207_1280.png';
+a.value = 'https://cdn.iconscout.com/icon/free/png-256/github-163-761603.png';
 e.setAttributeNode(a);
 
 a = document.createAttribute('id');
